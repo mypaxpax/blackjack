@@ -12,7 +12,16 @@ let message = "";
 let sum = firstCard + secondCard;
 
 function getRandomCard() {
-  return Math.floor(Math.random() * 13) + 1;
+  let random = Math.floor(Math.random() * 13) + 1;
+  console.log(random);
+
+  if (random > 10) {
+    return 10;
+  } else if (random === 1) {
+    return 11;
+  } else {
+    return random;
+  }
 }
 
 function startGame() {
