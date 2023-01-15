@@ -34,7 +34,7 @@ function startGame() {
 
   let firstCard = getRandomCard();
   let secondCard = getRandomCard();
-  cards.push(firstCard, secondCard);
+  cards = [firstCard, secondCard];
   sum = firstCard + secondCard;
 
   renderGame();
