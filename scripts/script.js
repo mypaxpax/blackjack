@@ -2,14 +2,11 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard];
+let sum = 0;
+let cards = [];
 let hasBlackjack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
-
-let sum = firstCard + secondCard;
 
 function getRandomCard() {
   let random = Math.floor(Math.random() * 13) + 1;
@@ -25,6 +22,13 @@ function getRandomCard() {
 }
 
 function startGame() {
+  isAlive = true;
+
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards.push(firstCard, secondCard);
+  sum = firstCard + secondCard;
+
   renderGame();
 }
 
@@ -47,8 +51,12 @@ function renderGame() {
 }
 
 function newCard() {
-  let newDrawnCard = getRandomCard();
-  sum += newDrawnCard;
-  cards.push(newDrawnCard);
-  renderGame();
+  if (isAlive === true && hasBlackjack === false) {
+    let newDrawnCard = getRandomCard();
+    sum += newDrawnCard;
+    cards.push(newDrawnCard);
+    renderGame();
+  } else {
+    console.log("lmao");
+  }
 }
