@@ -2,14 +2,18 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
-let firstCard = 2;
-let secondCard = 9;
+let firstCard = getRandomCard();
+let secondCard = getRandomCard();
 let cards = [firstCard, secondCard];
 let hasBlackjack = false;
 let isAlive = true;
 let message = "";
 
 let sum = firstCard + secondCard;
+
+function getRandomCard() {
+  return Math.floor(Math.random() * 13) + 1;
+}
 
 function startGame() {
   renderGame();
@@ -34,7 +38,7 @@ function renderGame() {
 }
 
 function newCard() {
-  let newDrawnCard = 2;
+  let newDrawnCard = getRandomCard();
   sum += newDrawnCard;
   cards.push(newDrawnCard);
   renderGame();
